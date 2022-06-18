@@ -1,37 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDoList</title>
-    <link rel="stylesheet" href="/CSS/styles.css">
-</head>
-
-<body>
+<%- include('header'); -%>
 
     <div class="box" id="heading">
-        <h1><%= kindOfDay %></h1>
+        <h1>
+            <%= kindOfDay %>
+        </h1>
     </div>
 
     <div class="box">
         <% for (var i=0; i<NewItemAdd.length; i++){ %>
             <div class="item">
                 <input type="checkbox">
-                <p><%= NewItemAdd[i] %></p>
+                <p>
+                    <%= NewItemAdd[i] %>
+                </p>
+                <div>
+                    <form class="item" action="/delete_item" method="post">
+                        <input type="hidden" name="list" value=<%=kindOfDay %> >
+                        <input type="hidden" name="position" value=<%=i %> >
+                        <button type="submit" name="delete">-</button>
+                    </form>
+                    <!--
+                    method -> post
+                    action -> /delete_item
+                    body -> {position: i}
+                    body -> {position: i, list: "Work"}
+                    -->
+                </div>
+
             </div>
             <% } %>
-            <form class="item" action="/" method="post">
-                <input type="text" name="addItem" placeholder="New Item" autocomplete="off">
-                <button type="submit">+</button>
-            </form>
+                <form class="item" action="/" method="post">
+                    <input type="text" name="addItem" placeholder="New Item" autocomplete="off" required>
+                    <input type="hidden" name="list" value=<%= kindOfDay %> >
+                    <button type="submit" name="add">+</button>
+                </form>
+                <div>
+                    <form class="item" action="/resetItems" method="get">
+                        <button class="letter" type="submit" name="reset">Reset</button>
+                    </form>
+
+                </div>
     </div>
 
-
-   
-
-
-</body>
-
-</html>
+    <%- include('footer'); -%>

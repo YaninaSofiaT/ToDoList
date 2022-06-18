@@ -22,7 +22,9 @@ h1 {
   background-color: #A683E3;
   text-align: center;
 }
-
+.letter{
+  font-size: small;
+}
 .item {
   min-height: 70px;
   display: flex;
@@ -59,7 +61,7 @@ form {
 button {
   min-height: 50px;
   width: 50px;
-  border-radius: 50%;
+  border-radius: 10%;
   border-color: transparent;
   background-color: #A683E3;
   color: #fff;
