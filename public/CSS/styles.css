@@ -9,7 +9,9 @@ h1 {
   color: #fff;
   padding: 10px;
 }
-
+.center {
+  text-align: center;
+}
 .box {
   max-width: 400px;
   margin: 50px auto;

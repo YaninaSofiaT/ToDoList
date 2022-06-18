@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
     };
     let day = today.toLocaleDateString("en-US", options);
 
-    res.render('list', { kindOfDay: day, NewItemAdd: newItems });
+    res.render('list', { kindOfDay: day, NewItemAdd: newItems, page: "Work list", ruth: "/work"});
 });
 
 app.post('/', (req, res) => {
@@ -44,9 +44,13 @@ app.post('/', (req, res) => {
 });
 
 app.get('/work', (req, res) => {
-    res.render('list', { kindOfDay: "Work list", NewItemAdd: newItemWork });
+    res.render('list', { kindOfDay: "Work list", NewItemAdd: newItemWork, page: "Pricipal List", ruth: "/"});
     
 });
+
+app.get('/backto', (req, res)=>{
+   
+})
 
 // app.post('/delete_item', (req, res) => {
 //     const itemIndex = req.body.position;
