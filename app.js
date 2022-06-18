@@ -48,17 +48,6 @@ app.get('/work', (req, res) => {
     
 });
 
-app.get('/backto', (req, res)=>{
-   
-})
-
-// app.post('/delete_item', (req, res) => {
-//     const itemIndex = req.body.position;
-
-//     newItems.splice(itemIndex, 1);
-//     res.redirect('/');
-    
-// });
 app.post('/delete_item', (req, res) => {
     let itemIndex = req.body.position;
     if (req.body.list === "Work"){
